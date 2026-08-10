@@ -567,8 +567,20 @@ trường, và dán output các lệnh trên. Chụp màn hình dashboard vào `
 **Chỉ ghi TÊN biến, không dán giá trị `AGENT_API_KEY`.** Repo công khai, dán vào
 là mất khóa — và test CP5 sẽ báo lỗi đúng chỗ đó.
 
-Muốn test luôn cả đường có xác thực (điểm cộng): thêm `DEPLOY_API_KEY=<khóa>`
-vào `.env` ở máy bạn (file này không được commit).
+**Điểm cộng — test luôn cả đường có xác thực.** Thêm vào `.env` ở máy bạn
+(file này không được commit):
+
+```bash
+DEPLOY_API_KEY=<đúng giá trị AGENT_API_KEY bạn đã set trên dashboard>
+```
+
+`DEPLOY_API_KEY` là khóa của **chính service bạn vừa deploy**, không phải
+token của Railway hay Render. Lab này không cần token của platform ở bất cứ
+đâu — trừ phần bonus CI/CD, và khi đó nó nằm trong GitHub Secrets chứ không
+nằm trong `.env`.
+
+Nếu khóa trên cloud khác khóa bạn dùng ở máy thì điền khóa trên cloud —
+test gọi vào bản deploy, không gọi vào máy bạn.
 
 ### Không deploy được?
 
