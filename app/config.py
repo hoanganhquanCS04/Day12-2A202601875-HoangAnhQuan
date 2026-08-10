@@ -40,9 +40,17 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    # TODO (CP1): khai báo 6 trường theo bảng trên, ví dụ:
-    #     port: int = 8000
-    #     agent_api_key: str
+    # Có mặc định — không phải secret, cloud tự ghi đè bằng biến môi trường
+    port: int = 8000
+
+    # KHÔNG có mặc định: thiếu AGENT_API_KEY là app chết ngay lúc khởi động,
+    # thay vì chạy tiếp với một khóa "changeme" mà ai cũng đoán được.
+    agent_api_key: str
+
+    redis_url: str = "redis://localhost:6379/0"
+    rate_limit_per_minute: int = 10
+    monthly_budget_usd: float = 10.0
+    log_level: str = "INFO"
 
 
 @lru_cache(maxsize=1)

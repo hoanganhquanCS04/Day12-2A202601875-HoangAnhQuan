@@ -3,25 +3,6 @@
 Đưa một AI agent từ `localhost:8000` lên một địa chỉ công khai mà người khác
 gọi được, có bảo mật, có giới hạn chi phí, và không sập khi bạn deploy bản mới.
 
----
-
-## ⚠️ Bài Làm Cá Nhân
-
-**Đây là bài tập cá nhân. Mỗi học viên nộp một repository của riêng mình.**
-
-| Được phép | Không được phép |
-|-----------|-----------------|
-| Đọc tài liệu, Stack Overflow, tra AI để hiểu khái niệm | Sao chép code của học viên khác |
-| Hỏi Lab Coach khi bị kẹt | Dùng chung repo, chung commit history |
-| Thảo luận **cách tiếp cận** với bạn cùng lớp | Nhờ người khác làm hộ, kể cả một phần |
-| Dùng AI để giải thích lỗi | Nộp code mà bạn không giải thích được |
-
-**Cách kiểm tra:** Lab Coach sẽ chọn ngẫu nhiên học viên để hỏi
-trực tiếp về code trong bài nộp. Không giải thích được phần mình viết → điểm
-phần đó bị hủy.
-
-**Phát hiện hai bài trùng nhau bất thường (cùng lỗi chính tả, cùng comment,
-cùng cấu trúc lạ): cả hai bài đều 0 điểm**, không phân biệt ai chép của ai.
 
 ---
 
@@ -34,15 +15,16 @@ DAY12-<Mã học viên>-<Họ và Tên>
 ```
 
 **Quy tắc viết:**
+
 - Họ tên **viết liền, không dấu**, chữ cái đầu mỗi từ viết hoa
 - Ngăn cách ba phần bằng dấu gạch ngang `-`
 - Không khoảng trắng (GitHub tự đổi khoảng trắng thành `-`, dễ sai lệch)
 
 **Ví dụ:**
 
-| Học viên | Tên repo |
-|----------|----------|
-| 2A202600280 — Nguyễn Văn An | `DAY12-2A202600280-NguyenVanAn` |
+| Học viên                          | Tên repo                           |
+| ----------------------------------- | ----------------------------------- |
+| 2A202600280 — Nguyễn Văn An      | `DAY12-2A202600280-NguyenVanAn`   |
 | 2A202601111 — Trần Thị Bích Hà | `DAY12-2A202601111-TranThiBichHa` |
 
 **Sai tên repo = trừ 5 điểm.** Đây là cách duy nhất để Lab Coach biết bài của ai
@@ -70,6 +52,7 @@ git push origin main
 ## Mục Tiêu
 
 Sau buổi lab này, bạn sẽ:
+
 - Tách toàn bộ cấu hình ra khỏi code theo 12-Factor và biết vì sao secret không được có giá trị mặc định
 - Viết Dockerfile multi-stage, chạy container bằng user thường, image dưới 500MB
 - Bảo vệ API bằng API key, sliding-window rate limit và cost guard theo tháng
@@ -81,17 +64,17 @@ Sau buổi lab này, bạn sẽ:
 
 ## Lịch Trình & Checkpoint
 
-| Giờ | Nội dung | Checkpoint | Điểm |
-|-----|----------|------------|------|
-| 9h00–9h20 | Setup môi trường, tạo repo đúng tên | **CP0:** `pytest tests/ -v` chạy được (rớt hết là đúng — bạn chưa code) | — |
-| 9h20–10h00 | **Block 1** — 12-Factor Config, Health, Logging | **CP1 (10h00):** `pytest tests/test_cp1.py -v` | 15 |
-| 10h00–10h45 | **Block 2** — Docker: multi-stage, bảo mật image | **CP2 (10h45):** `pytest tests/test_cp2.py -v` | 15 |
-| 10h45–10h55 | ☕ Giải lao | — | — |
-| 10h55–11h40 | **Block 3** — API Security: auth, rate limit, cost guard | **CP3 (11h40):** `pytest tests/test_cp3.py -v` | 20 |
-| 11h40–12h20 | **Block 4** — Scaling & Reliability | **CP4 (12h20):** `pytest tests/test_cp4.py -v` | 20 |
-| 12h20–12h50 | **Block 5** — Deploy lên cloud | **CP5 (12h50):** `pytest tests/test_cp5.py -v` | 15 |
-| 12h50–13h00 | Hoàn thiện `exercises.md`, `python grade.py`, nộp bài | | 15 |
-| — | **BONUS** — CI/CD với GitHub Actions (không bắt buộc) | `pytest tests/test_bonus_cicd.py -v` | +10 |
+| Giờ         | Nội dung                                                        | Checkpoint                                                                                  | Điểm |
+| ------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------ |
+| 9h00–9h20   | Setup môi trường, tạo repo đúng tên                       | **CP0:** `pytest tests/ -v` chạy được (rớt hết là đúng — bạn chưa code) | —     |
+| 9h20–10h00  | **Block 1** — 12-Factor Config, Health, Logging           | **CP1 (10h00):** `pytest tests/test_cp1.py -v`                                      | 15     |
+| 10h00–10h45 | **Block 2** — Docker: multi-stage, bảo mật image        | **CP2 (10h45):** `pytest tests/test_cp2.py -v`                                      | 15     |
+| 10h45–10h55 | ☕ Giải lao                                                     | —                                                                                          | —     |
+| 10h55–11h40 | **Block 3** — API Security: auth, rate limit, cost guard  | **CP3 (11h40):** `pytest tests/test_cp3.py -v`                                      | 20     |
+| 11h40–12h20 | **Block 4** — Scaling & Reliability                       | **CP4 (12h20):** `pytest tests/test_cp4.py -v`                                      | 20     |
+| 12h20–12h50 | **Block 5** — Deploy lên cloud                           | **CP5 (12h50):** `pytest tests/test_cp5.py -v`                                      | 15     |
+| 12h50–13h00 | Hoàn thiện`exercises.md`, `python grade.py`, nộp bài     |                                                                                             | 15     |
+| —           | **BONUS** — CI/CD với GitHub Actions (không bắt buộc) | `pytest tests/test_bonus_cicd.py -v`                                                      | +10    |
 
 **Cách dùng checkpoint:** đến mốc giờ nào thì chạy lệnh của checkpoint đó. Xanh
 hết → sang block sau. Còn đỏ → đọc thông báo lỗi (mỗi test đều ghi rõ sai ở đâu
@@ -111,6 +94,7 @@ Chi tiết từng bước: [LAB_GUIDE.md](LAB_GUIDE.md).
 ## Cài Đặt
 
 ### Yêu cầu
+
 - Python 3.11+
 - Docker & Docker Compose (cần cho CP2 trở đi)
 - Git + tài khoản GitHub
@@ -121,6 +105,7 @@ Không cần API key của OpenAI hoặc các bên cung cấp API khác: lab dù
 ### Môi trường ảo & thư viện
 
 **macOS / Linux:**
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
@@ -128,6 +113,7 @@ pip install -r requirements.txt
 ```
 
 **Windows (PowerShell):**
+
 ```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
@@ -215,16 +201,16 @@ image tự bỏ qua nếu máy bạn chưa bật Docker.
 python grade.py
 ```
 
-| Tiêu chí | Cách chấm | Điểm |
-|----------|-----------|------|
-| CP1 — 12-Factor Config, Health & Logging | `tests/test_cp1.py` | 15 |
-| CP2 — Docker: multi-stage, bảo mật image | `tests/test_cp2.py` | 15 |
-| CP3 — API Security: auth, rate limit, cost guard | `tests/test_cp3.py` | 20 |
-| CP4 — Scaling & Reliability | `tests/test_cp4.py` | 20 |
-| CP5 — Cloud Deployment | `tests/test_cp5.py` | 15 |
-| `exercises.md` — 10 câu phản ánh | Đếm số câu đã trả lời | 15 |
-| **Tổng phần bắt buộc** | | **100** |
-| BONUS — CI/CD với GitHub Actions | `tests/test_bonus_cicd.py` | +10 |
+| Tiêu chí                                        | Cách chấm                   | Điểm        |
+| ------------------------------------------------- | ----------------------------- | ------------- |
+| CP1 — 12-Factor Config, Health & Logging         | `tests/test_cp1.py`         | 15            |
+| CP2 — Docker: multi-stage, bảo mật image       | `tests/test_cp2.py`         | 15            |
+| CP3 — API Security: auth, rate limit, cost guard | `tests/test_cp3.py`         | 20            |
+| CP4 — Scaling & Reliability                      | `tests/test_cp4.py`         | 20            |
+| CP5 — Cloud Deployment                           | `tests/test_cp5.py`         | 15            |
+| `exercises.md` — 10 câu phản ánh            | Đếm số câu đã trả lời | 15            |
+| **Tổng phần bắt buộc**                  |                               | **100** |
+| BONUS — CI/CD với GitHub Actions                | `tests/test_bonus_cicd.py`  | +10           |
 
 Điểm bonus cộng vào tổng nhưng **tổng cuối không vượt quá 100**. Muốn chấm nhanh
 phần bắt buộc thôi: `python grade.py --no-bonus`.
@@ -232,6 +218,7 @@ phần bắt buộc thôi: `python grade.py --no-bonus`.
 Điểm mỗi checkpoint tỷ lệ với số test pass — **làm được đến đâu có điểm đến đó**.
 
 **Trừ điểm:**
+
 - Sai quy tắc đặt tên repo: **−5**
 - Commit file `.env` hoặc để lộ API key trong repo: **−10**
 - Không giải thích được code khi được hỏi: hủy điểm phần đó
